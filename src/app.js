@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routes/AppRouter';
 import {Provider} from 'react-redux';
 import configStore from './store';
-import {fetchMovies} from './actions/MovieCatalog';
 import {fetchGenres} from './actions/GenresList';
 import './styles/main.scss';
 import './helpers/helpers';

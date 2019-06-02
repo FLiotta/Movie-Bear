@@ -1,11 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CircularProgressbar, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-export default (props) => (
+const Card = (props) => (
 	<div className="col-6 col-md-4 col-lg-2 animated fadeIn moviecard" style={{"animationDelay": (props.index / 10) + 's', paddingBottom: "50px"}}>
-		<Link to={'/movie/' + props.id}>
+		<Link to={'/' + props.section +'/' + props.id}>
 		<div className="poster">
 			<div className="poster_shadow"></div>
 			<img 
@@ -14,7 +15,7 @@ export default (props) => (
 				className="mx-auto d-block img-fluid poster_image"
 			/>
 			<div className="poster_description">
-				<p className="lead text-center">{props.title}</p>
+				<p className="lead text-center">{props.title ? props.title : props.name}</p>
 			</div>
 			<div className="rating">
 				<CircularProgressbar 
@@ -45,3 +46,9 @@ export default (props) => (
 		</Link>
 	</div>
 );
+
+const mapStateToProps = state => ({
+	section: state.catalog.section
+})
+
+export default connect(mapStateToProps)(Card);

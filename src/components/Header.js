@@ -1,29 +1,29 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchHighlight} from '../actions/MovieCatalog';
+import {fetchHighlight} from '../actions/catalog';
 import { CircularProgressbar, buildStyles} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Header = (props) => (
 			<div>
-				{props.movie &&				
+				{props.header &&				
 					<div className="jumbotron jumbotron-fluid">					
-					  <div id="header" style={{backgroundImage: "url('https://image.tmdb.org/t/p/w1280" + props.movie.backdrop_path + "')"}}></div>
-					  <div className="container animated fadeIn" id="header_container">					  	
+					  <div id="header" style={{backgroundImage: "url('https://image.tmdb.org/t/p/w200" + props.header.backdrop_path + "')"}}></div>
+					  <div className="container" id="header_container">					  	
 					    <div className="row justify-content-center">
 					    		<div className="header_shadow"></div>
 								<div className="col-12 col-lg-3">
 									<img 
-										src={'https://image.tmdb.org/t/p/w200' + props.movie.poster_path} 
-										alt={props.movie.title} 
+										src={'https://image.tmdb.org/t/p/w200' + props.header.poster_path} 
+										alt={props.header.title} 
 										className="mx-auto d-block img-fluid poster_image"
 									/>
 								</div>	
 								<div className="col-12 col-lg-5">
-									<h1 className="secondary display-4" id="header_title">{props.movie.title}</h1>
-									<p className="text-white" id="header_description">{props.movie.overview}</p>
-									<Link to={'/movies/' + props.movie.id}><button className="btn btn-outline-warning btn-sm">Show me more</button></Link>									
+									<h1 className="secondary display-4" id="header_title">{props.header.title ? props.header.title : props.header.name}</h1>
+									<p className="text-white" id="header_description">{props.header.overview}</p>
+									<Link to={'/' + props.section + '/' + props.header.id}><button className="btn btn-outline-warning btn-sm">Show me more</button></Link>									
 									&ensp;
 									<button className="btn btn-outline-danger btn-sm" onClick={props.fetchHighlight}><i className="fas fa-redo-alt"></i></button>
 								</div>
@@ -35,7 +35,8 @@ const Header = (props) => (
 )
 
 const mapStateToProps = state => ({
-	movie: state.moviecatalog.highlight
+	header: state.catalog.highlight,
+	section: state.catalog.section
 })
 
 const mapDispatchToProps = dispatch => ({

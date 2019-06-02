@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import MainPage from '../pages/MainPage';
+import MoviePage from '../pages/MoviePage';
+import TvPage from '../pages/TvPage';
 import Navbar from '../components/Navbar';
 
 export default (props) => (
@@ -8,7 +9,8 @@ export default (props) => (
   	<Navbar />
   	<div id="routercontainer">
 	    <Switch>
-	      <Route path="/" component={MainPage} exact />
+	      <Route path="/" component={MoviePage} exact />
+	      <Route path="/tv" component={TvPage} exact/>
 	    </Switch>
     </div>
   </BrowserRouter>
