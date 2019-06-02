@@ -1,10 +1,10 @@
 import {API} from '../config';
 
-export const FETCH_MOVIES = "FETCH_MOVIES";
-export const FETCH_HIGHLIGHT = "FETCH_HIGHLIGHT";
-export const FETCH_SERIES = "FETCH_SERIES";
-export const SET_LOADING = "SET_LOADING";
-export const CLEAR = "CLEAR";
+export const 	FETCH_MOVIES = "FETCH_MOVIES",
+				FETCH_HIGHLIGHT = "FETCH_HIGHLIGHT",
+				FETCH_SERIES = "FETCH_SERIES",
+				SET_LOADING = "SET_LOADING",
+				CLEAR = "CLEAR";
 
 export const clear = () => {
 	return dispatch => dispatch({

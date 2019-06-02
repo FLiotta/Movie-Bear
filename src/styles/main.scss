@@ -5,6 +5,8 @@ $secondary: #EF810E;
 @import './Header.scss';
 @import './Navbar.scss';
 @import './Catalog.scss';
+@import './About.scss';
+@import './Article.scss';
 
 .primary {
 	color: $primary;
@@ -16,7 +18,7 @@ $secondary: #EF810E;
 
 html,body {
 	background-color: $primary;
-	background-image: url('/back.png');
+	background-image: url('/images/back.png');
 	overflow-x: hidden;
 }
 

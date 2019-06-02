@@ -1,0 +1,16 @@
+#about {
+	padding-top: 125px;
+}
+
+.section {
+	padding: 15px;
+}
+
+#about a{
+	color: $secondary !important;
+}
+
+#about_logo {
+	filter: grayscale(150%);
+	opacity: 0.1;
+}

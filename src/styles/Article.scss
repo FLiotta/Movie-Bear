@@ -1,0 +1,43 @@
+#article {
+	padding-top: 100px;
+}
+
+#article_header {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+#article_description p{
+    color: white;
+}
+
+#article_description .subtitle{
+    color: $secondary;
+}
+
+#title {
+    color: $secondary;
+}
+
+#article_info {
+    padding: 10px;
+}
+
+.article_image {
+    transition: .5s all;
+    cursor: pointer;
+}
+
+.article_image:hover {
+    transform: scale(1.1,1.1);
+}
