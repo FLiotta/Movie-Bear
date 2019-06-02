@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchMovies} from '../actions/MovieCatalog';
 import MovieCard from '../components/MovieCard';
+import Header from '../components/Header';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 
 class MainPage extends Component {
@@ -16,6 +17,9 @@ class MainPage extends Component {
 	render(){
 		return (			
 			<div className="row">
+				<div className="col-12">
+					<Header/>
+				</div>
 				<div className="col-12">
 					<div className="row" style={{padding: "50px"}}>
 						{this.props.movies && this.props.movies.map((movie, i) => {

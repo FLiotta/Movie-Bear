@@ -1,5 +1,16 @@
+@import './MovieCard.scss';
+@import './Header.scss';
+
 $primary: #001A26;
 $secondary: #EF810E;
+
+.primary {
+	color: $primary;
+}
+
+.secondary { 
+	color: $secondary;
+}
 
 body {
 	background-color: $primary;
@@ -8,3 +19,4 @@ body {
 p {
 	color: $secondary;
 }
+
