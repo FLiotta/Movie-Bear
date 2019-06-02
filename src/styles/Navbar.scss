@@ -1,5 +1,18 @@
 #logo {
+	transition: .5s all;
 	width: 100px;
+}
+
+#logo:hover {
+	transform: scale(1.05,1.05);
+}
+
+.nav-link {
+	transition: .3s all;
+}
+
+.nav-link:hover {
+	transform: translateY(-5px);
 }
 
 .navbar {
@@ -11,8 +24,12 @@
 }
 
 .normal {
-	background: $primary !important;
+	background: rgba(0, 26, 38, .9) !important;
 	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.75);
+}
+
+.active {
+	color: $secondary !important;
 }

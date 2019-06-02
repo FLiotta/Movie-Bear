@@ -13,16 +13,16 @@ export default (props) => (
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-        <NavLink to="/" className="nav-link">Movies</NavLink>
+        <NavLink to="/" exact className="nav-link" activeClassName="active">Movies</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/" className="nav-link disabled">TV Series</NavLink>
+        <NavLink to="/tv" className="nav-link" activeClassName="active">TV Series</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/" className="nav-link disabled">About</NavLink>
+        <NavLink to="/about" className="nav-link" activeClassName="active">About</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/" className="nav-link disabled">Github</NavLink>
+        <NavLink to="/github" className="nav-link" activeClassName="active">Github</NavLink>
       </li>
     </ul>
   </div>

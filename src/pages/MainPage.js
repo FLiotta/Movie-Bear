@@ -11,10 +11,8 @@ class MainPage extends Component {
 	}
 
 	componentWillMount(){
-		if(this.props.movies.length == 0){
-			console.log("FETCHING")
+		if(this.props.total == 0)
 			this.props.fetchMovies()
-		}
 	}
 
 	render(){
@@ -39,6 +37,7 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = state => ({
+	total: state.moviecatalog.total,
 	movies: state.moviecatalog.movies
 })
 

@@ -1,6 +1,7 @@
 import {API} from '../config';
 
 export const FETCH_MOVIES = "FETCH_MOVIES";
+export const FETCH_HIGHLIGHT = "FETCH_HIGHLIGHT";
 
 export const fetchMovies = (params = {}) => {
 	return async (dispatch,getState) => {
@@ -18,5 +19,17 @@ export const fetchMovies = (params = {}) => {
 					payload: movielist
 				})
 			})
+	}
+}
+
+export const fetchHighlight = () => {
+	return (dispatch, getState) => {
+		const catalog = getState().moviecatalog.movies;
+		const newHighlight = catalog[Math.floor(Math.random() * catalog.length) + 0];
+		
+		dispatch({
+			type: FETCH_HIGHLIGHT,
+			payload: newHighlight
+		})
 	}
 }
