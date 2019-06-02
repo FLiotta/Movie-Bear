@@ -2,6 +2,7 @@ import {API} from '../config';
 
 export const FETCH_MOVIES = "FETCH_MOVIES";
 export const FETCH_HIGHLIGHT = "FETCH_HIGHLIGHT";
+export const SET_LOADING = "SET_LOADING";
 
 export const fetchMovies = (params = {}) => {
 	return async (dispatch,getState) => {
@@ -10,6 +11,8 @@ export const fetchMovies = (params = {}) => {
 			page: params.page ? params.page : getState().moviecatalog.actualPage + 1,
 			sort_by: params.sort_by ? params.sort_by : 'popularity.desc'
 		}
+
+		dispatch({type: SET_LOADING})
 
 		await fetch(`${API.URL}/discover/movie?sort_by=${config.sort_by}&page=${config.page}&api_key=${API.API_KEY}`)
 			.then(response => response.json())
@@ -32,4 +35,10 @@ export const fetchHighlight = () => {
 			payload: newHighlight
 		})
 	}
+}
+
+export const setLoading = () => {
+	return dispatch => dispatch({
+		type: SET_LOADING
+	})
 }

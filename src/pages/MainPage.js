@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchMovies} from '../actions/MovieCatalog';
 import MovieCard from '../components/MovieCard';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import BottomScrollListener from 'react-bottom-scroll-listener';
 
 class MainPage extends Component {
@@ -15,21 +16,29 @@ class MainPage extends Component {
 			this.props.fetchMovies()
 	}
 
+	componentDidUpdate(){
+		console.log(this.props)
+	}
+
 	render(){
 		return (			
-			<div className="row">
+			<div className="row justify-content-center">
 				<div className="col-12">
 					<Header/>
 				</div>
 				<div className="col-12">
 					<div className="row" style={{padding: "50px"}}>
-						{this.props.movies && this.props.movies.map((movie, i) => {
-							
+						{this.props.movies && this.props.movies.map((movie, i) => {							
 							const index = (i >= 20) ? Math.floor(i%20) : i;
 							return (<MovieCard key={movie.id} {...movie} index={index} />)
 						})}
+						{this.props.isLoading &&
+							<div className="col-12">
+								<Loading />
+							</div>
+						}
 					</div>
-				</div>
+				</div>				
 				<BottomScrollListener onBottom={this.props.fetchMovies} />
 			</div>			
 		)
@@ -38,7 +47,8 @@ class MainPage extends Component {
 
 const mapStateToProps = state => ({
 	total: state.moviecatalog.total,
-	movies: state.moviecatalog.movies
+	movies: state.moviecatalog.movies,
+	isLoading: state.moviecatalog.isLoading
 })
 
 const mapDispatchToProps = dispatch => ({
