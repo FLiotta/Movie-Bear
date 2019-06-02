@@ -14,7 +14,7 @@ class Header extends Component {
 				{this.props.movie &&					
 					<div className="jumbotron jumbotron-fluid">
 					  <div id="header" style={{backgroundImage: "url('https://image.tmdb.org/t/p/w1280" + this.props.movie.backdrop_path + "')"}}></div>
-					  <div className="container">					  	
+					  <div className="container" id="header_container">					  	
 					    <div className="row justify-content-center">
 					    		<div className="header_shadow"></div>
 								<div className="col-12 col-lg-3">
@@ -27,7 +27,7 @@ class Header extends Component {
 								<div className="col-12 col-lg-5">
 									<h1 className="secondary display-4" id="header_title">{this.props.movie.title}</h1>
 									<p className="text-white" id="header_description">{this.props.movie.overview}</p>
-									<button className="btn btn-outline-warning btn-sm">Show me more</button>
+									<a href={'/movies/' + this.props.movie.id}><button className="btn btn-outline-warning btn-sm">Show me more</button></a>
 								</div>
 							</div>
 					  </div>

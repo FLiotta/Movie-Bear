@@ -6,6 +6,7 @@ import configStore from './store';
 import {fetchMovies} from './actions/MovieCatalog';
 import {fetchGenres} from './actions/GenresList';
 import './styles/main.scss';
+import './helpers/helpers';
 
 let store = configStore();
 
@@ -17,5 +18,6 @@ let jsx = (
     <AppRouter />
   </Provider>
 )
+
 
 ReactDOM.render(jsx, document.getElementById('app'));

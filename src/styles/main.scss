@@ -1,8 +1,9 @@
-@import './MovieCard.scss';
-@import './Header.scss';
-
 $primary: #001A26;
 $secondary: #EF810E;
+
+@import './MovieCard.scss';
+@import './Header.scss';
+@import './Navbar.scss';
 
 .primary {
 	color: $primary;
@@ -12,11 +13,11 @@ $secondary: #EF810E;
 	color: $secondary;
 }
 
-body {
+html,body {
 	background-color: $primary;
+	overflow-x: hidden;
 }
 
 p {
 	color: $secondary;
 }
-

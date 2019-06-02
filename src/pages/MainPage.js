@@ -11,7 +11,10 @@ class MainPage extends Component {
 	}
 
 	componentWillMount(){
-		this.props.fetchMovies()
+		if(this.props.movies.length == 0){
+			console.log("FETCHING")
+			this.props.fetchMovies()
+		}
 	}
 
 	render(){
