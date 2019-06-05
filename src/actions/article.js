@@ -8,16 +8,22 @@ export const FETCH_ARTICLE = "FETCH_ARTICLE",
 export const fetchArticle = (id, section) => {
 	return dispatch => {
 		fetch(`${API.URL}/${section}/${id}?api_key=${API.API_KEY}&language=en-US`)
-			.then(response => response.json())
-			.then(article => {
+			.then(response => {
+				if(response.status == 200)
+					return response.json();
+				return {status: response.status}
+			})
+			.then(payload => {
 				dispatch({
 					type: FETCH_ARTICLE,
-					payload: article
+					payload
 				})
 
-				dispatch(fetchCredits(id, section))
-				dispatch(fetchImages(id, section));
-				dispatch(fetchVideos(id, section))
+				if(payload.id){
+					dispatch(fetchCredits(id, section))
+					dispatch(fetchImages(id, section));
+					dispatch(fetchVideos(id, section))
+				}
 			})
 	}
 } 

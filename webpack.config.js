@@ -1,9 +1,13 @@
 const path = require('path');
+const webpack = require('webpack')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname,'public'),
+    path: path.resolve(__dirname,'dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -18,15 +22,25 @@ module.exports = {
       {
         test: /\.s?css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
       }
     ]
   },
+  plugins: [
+    new UglifyJSPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css',
+      chunkFilename: 'bundle.css',
+    }),
+  ],
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     publicPath: '/'
   }  

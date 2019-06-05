@@ -8,8 +8,6 @@ import './helpers/helpers';
 
 const store = configStore();
 
-store.subscribe(() => {console.log(store.getState())})
-
 ReactDOM.render(
 	<Provider store={store}><AppRouter /></Provider>
 	,document.getElementById('app')

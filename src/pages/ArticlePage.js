@@ -10,8 +10,13 @@ class ArticlePage extends Component {
 		super(props);
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		this.props.fetchArticle(this.props.match.params.id, this.props.section)
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.article.status > 200)
+			nextProps.history.push("/404")
 	}
 
 	render(){
