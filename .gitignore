@@ -1,3 +1,4 @@
 /node_modules
 /logo
 /src/config.js
+/public/bundle.js

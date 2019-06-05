@@ -21,6 +21,16 @@
     color: white;
 }
 
+#homepage_link {
+    color: white !important;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#homepage_link:hover {
+    color: $secondary !important;
+}
+
 #article_description .subtitle{
     color: $secondary;
 }
@@ -36,8 +46,19 @@
 .article_image {
     transition: .5s all;
     cursor: pointer;
+    padding: 2px;
 }
 
 .article_image:hover {
     transform: scale(1.1,1.1);
+}
+
+#tagline {
+    font-style: italic;
+}
+
+.actor_image {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
 }

@@ -1,60 +1,60 @@
 import {API} from '../config';
 
-export const FETCH_MOVIE = "FETCH_MOVIE",
-	 		 FETCH_MOVIE_CREDITS = "FETCH_MOVIE_CREDITS",
-	 		 FETCH_MOVIE_IMAGES = "FETCH_MOVIE_IMAGES",
-	 		 FETCH_MOVIE_VIDEOS = "FETCH_MOVIE_VIDEOS";
+export const FETCH_ARTICLE = "FETCH_ARTICLE",
+	 		 FETCH_CREDITS = "FETCH_CREDITS",
+	 		 FETCH_IMAGES = "FETCH_IMAGES",
+	 		 FETCH_VIDEOS = "FETCH_VIDEOS";
 
-export const fetchMovie = (id) => {
+export const fetchArticle = (id, section) => {
 	return dispatch => {
-		fetch(`${API.URL}/movie/${id}?api_key=${API.API_KEY}&language=en-US`)
+		fetch(`${API.URL}/${section}/${id}?api_key=${API.API_KEY}&language=en-US`)
 			.then(response => response.json())
-			.then(movie => {
+			.then(article => {
 				dispatch({
-					type: FETCH_MOVIE,
-					payload: movie
+					type: FETCH_ARTICLE,
+					payload: article
 				})
 
-				dispatch(fetchCredits(id))
-				dispatch(fetchImages(id));
-				dispatch(fetchVideos(id))
+				dispatch(fetchCredits(id, section))
+				dispatch(fetchImages(id, section));
+				dispatch(fetchVideos(id, section))
 			})
 	}
 } 
 
-export const fetchCredits = (id) => {
+export const fetchCredits = (id, section) => {
 	return dispatch => {
-		fetch(`${API.URL}/movie/${id}/credits?api_key=${API.API_KEY}`)
+		fetch(`${API.URL}/${section}/${id}/credits?api_key=${API.API_KEY}`)
 			.then(response => response.json())
 			.then(credits => {
 				dispatch({
-					type: FETCH_MOVIE_CREDITS,
+					type: FETCH_CREDITS,
 					payload: credits
 				})
 			})
 	}
 }
 
-export const fetchImages = (id) => {
+export const fetchImages = (id, section) => {
 	return dispatch => {
-		fetch(`${API.URL}/movie/${id}/images?api_key=${API.API_KEY}`)
+		fetch(`${API.URL}/${section}/${id}/images?api_key=${API.API_KEY}`)
 			.then(response => response.json())
 			.then(images => {
 				dispatch({
-					type: FETCH_MOVIE_IMAGES,
+					type: FETCH_IMAGES,
 					payload: images
 				})
 			})
 	}
 }
 
-export const fetchVideos = (id) => {
+export const fetchVideos = (id, section) => {
 	return dispatch => {
-		fetch(`${API.URL}/movie/${id}/videos?api_key=${API.API_KEY}`)
+		fetch(`${API.URL}/${section}/${id}/videos?api_key=${API.API_KEY}`)
 			.then(response => response.json())
 			.then(videos => {
 				dispatch({
-					type: FETCH_MOVIE_VIDEOS,
+					type: FETCH_VIDEOS,
 					payload: videos
 				})
 			})

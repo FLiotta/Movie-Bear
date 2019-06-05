@@ -4,7 +4,7 @@ import MoviePage from '../pages/MoviePage';
 import TvPage from '../pages/TvPage';
 import AboutPage from '../pages/AboutPage';
 import Navbar from '../components/Navbar';
-import MovieArticlePage from '../pages/MovieArticlePage'
+import ArticlePage from '../pages/ArticlePage'
 
 export default (props) => (
   <BrowserRouter>
@@ -14,7 +14,8 @@ export default (props) => (
 	      <Route path="/" component={MoviePage} exact />
 	      <Route path="/tv" component={TvPage} exact/>
 	      <Route path="/about" component={AboutPage} />
-	      <Route path="/movies/:id" component={MovieArticlePage} />
+	      <Route path="/movies/:id" render={(props) => <ArticlePage {...props} section="movie" />} />
+	      <Route path="/tv/:id" render={(props) => <ArticlePage {...props} section="tv" />} />
 	    </Switch>
     </div>
   </BrowserRouter>
