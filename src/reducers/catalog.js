@@ -1,4 +1,4 @@
-import {FETCH_MOVIES, FETCH_HIGHLIGHT, FETCH_SERIES, SET_LOADING, CLEAR} from '../actions/catalog';
+import {FETCH_CATALOG, FETCH_HIGHLIGHT, SET_LOADING, CLEAR} from '../actions/catalog';
 
 const defaultState = {
 	actualPage: 0,
@@ -11,30 +11,20 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-  	case FETCH_MOVIES:
+  	case FETCH_CATALOG:
   		return {
   			...state, 
         isLoading: false,
-        total: state.total + action.payload.results.length,
-  			actualPage: action.payload.page,
-        section: "movies",
-  			results: state.section != "movies" ? action.payload.results : state.results.concat(action.payload.results),
-        highlight: state.highlight && state.section == "movies" ? state.highlight : action.payload.results[Math.floor(Math.random() * action.payload.results.length) + 0]
+        total: state.total + action.payload.catalog.results.length,
+  			actualPage: action.payload.catalog.page,
+        section: action.payload.section,
+  			results: action.payload.section != state.section ? action.payload.catalog.results : state.results.concat(action.payload.catalog.results),
+        highlight: state.highlight ? state.highlight : action.payload.catalog.results[Math.floor(Math.random() * action.payload.catalog.results.length) + 0]
   		};
     case FETCH_HIGHLIGHT:
       return {
         ...state,
         highlight: action.payload
-      }
-    case FETCH_SERIES:
-      return {
-        ...state,
-        section: "tv",
-        isLoading: false,
-        total: state.total + action.payload.results.length,
-        actualPage: action.payload.page,
-        results: state.section != "tv" ? action.payload.results : state.results.concat(action.payload.results),
-        highlight: state.highlight && state.section == "tv" ? state.highlight : action.payload.results[Math.floor(Math.random() * action.payload.results.length) + 0]
       }
     case SET_LOADING:
       return {

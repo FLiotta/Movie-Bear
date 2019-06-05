@@ -5,7 +5,7 @@ import CastList from '../components/CastList';
 import InfoCard from '../components/InfoCard';
 import ImageList from '../components/ImageList';
 
-class MovieArticlePage extends Component {
+class ArticlePage extends Component {
 	constructor(props){
 		super(props);
 	}
@@ -79,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieArticlePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

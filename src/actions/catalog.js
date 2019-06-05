@@ -1,8 +1,7 @@
 import {API} from '../config';
 
-export const 	FETCH_MOVIES = "FETCH_MOVIES",
+export const 	FETCH_CATALOG = "FETCH_CATALOG",
 				FETCH_HIGHLIGHT = "FETCH_HIGHLIGHT",
-				FETCH_SERIES = "FETCH_SERIES",
 				SET_LOADING = "SET_LOADING",
 				CLEAR = "CLEAR";
 
@@ -12,43 +11,26 @@ export const clear = () => {
 	})
 }
 
-export const fetchMovies = (params = {}) => {
-	return async (dispatch,getState) => {
+export const fetchCatalog = (params = {}) => {
+	return (dispatch,getState) => {
 		const state = getState();
 		const config = {
+			section: params.section,
 			page: params.page ? params.page : state.catalog.actualPage + 1,
 			sort_by: params.sort_by ? params.sort_by : 'popularity.desc'
 		}
 
 		dispatch({type: SET_LOADING})
 
-		await fetch(`${API.URL}/discover/movie?page=${config.page}&api_key=${API.API_KEY}`)
+		fetch(`${API.URL}/discover/${config.section}?page=${config.page}&api_key=${API.API_KEY}`)
 			.then(response => response.json())
-			.then(movielist => {
+			.then(catalogList => {
 				dispatch({
-					type: FETCH_MOVIES,
-					payload: movielist
-				})
-			})
-	}
-}
-
-export const fetchSeries = (params = {}) => {
-	return async (dispatch, getState) => {
-		const state = getState();
-		const config = {
-			page: params.page ? params.page : state.catalog.actualPage + 1,
-			sort_by: params.sort_by ? params.sort_by : 'popularity.desc'
-		}
-
-		dispatch({type: SET_LOADING});
-
-		await fetch(`${API.URL}/discover/tv?page=${config.page}&language=en-US&api_key=${API.API_KEY}`)
-			.then(response => response.json())
-			.then(serieslist => {
-				dispatch({
-					type: FETCH_SERIES,
-					payload: serieslist
+					type: FETCH_CATALOG,
+					payload: {
+						catalog: catalogList,
+						section: config.section
+					}
 				})
 			})
 	}
