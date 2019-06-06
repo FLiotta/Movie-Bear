@@ -9,7 +9,7 @@ const Header = (props) => (
 			<div>
 				{props.header &&				
 					<div className="jumbotron jumbotron-fluid">					
-					  <div id="header" style={{backgroundImage: "url('https://image.tmdb.org/t/p/w200" + props.header.backdrop_path + "')"}}></div>
+					  <div id="header" style={{backgroundPosition: "center", backgroundImage: "url('https://image.tmdb.org/t/p/w200" + props.header.backdrop_path + "')"}}></div>
 					  <div className="container" id="header_container">					  	
 					    <div className="row justify-content-center">
 					    		<div className="header_shadow"></div>

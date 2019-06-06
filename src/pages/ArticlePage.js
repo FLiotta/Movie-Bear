@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {fetchArticle, clear} from '../actions/article';
 import {connect} from 'react-redux';
+import Card from '../components/Card';
 import CastList from '../components/CastList';
 import InfoCard from '../components/InfoCard';
 import ImageList from '../components/ImageList';
@@ -34,8 +35,10 @@ class ArticlePage extends Component {
 					? <div className="row">					
 						<div className="col-12">
 							<div className="row justify-content-center">
-								<div className="col-10 col-lg-3">
-									<img src={'https://image.tmdb.org/t/p/w200' + this.props.main.info.poster_path} className="mx-auto d-block" id="poster_image"  />
+								<div className="col-7 col-lg-3" style={{paddingBottom: "50px"}}>
+									<Card 
+										{...this.props.main.info}
+									/>
 								</div>
 								<div className="col-10 col-lg-8" id="article_description">
 									<div className="row">
@@ -66,7 +69,7 @@ class ArticlePage extends Component {
 										</div>
 										<div className="col-12 section">
 											<p className="lead text-white">Video</p>
-											{this.props.videos.info && <iframe width="90%" height="315" src={'https://www.youtube.com/embed/' + this.props.videos.info[0].key} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
+											{this.props.videos.info && <iframe width="100%" height="355" src={'https://www.youtube.com/embed/' + this.props.videos.info[0].key} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
 										</div>
 										<div className="col-12 section">
 											<p className="lead text-white">Images</p>
