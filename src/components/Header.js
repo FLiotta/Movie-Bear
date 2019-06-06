@@ -17,15 +17,16 @@ const Header = (props) => (
 									<img 
 										src={'https://image.tmdb.org/t/p/w200' + props.header.poster_path} 
 										alt={props.header.title} 
-										className="mx-auto d-block img-fluid poster_image"
+										className="mx-auto d-block img-fluid animated fadeInRight"
+										id="poster_image"
 									/>
 								</div>	
-								<div className="col-12 col-lg-5">
+								<div className="col-10 col-lg-5">
 									<h1 className="secondary display-4" id="header_title">{props.header.title ? props.header.title : props.header.name}</h1>
 									<p className="text-white" id="header_description">{props.header.overview}</p>
 									<Link to={'/' + props.section + '/' + props.header.id}><button className="btn btn-outline-warning btn-sm">Show me more</button></Link>									
 									&ensp;
-									<button className="btn btn-outline-danger btn-sm" onClick={props.fetchHighlight}><i className="fas fa-redo-alt"></i></button>
+									<button id="refetchButton" className="btn btn-outline-danger btn-sm" onClick={props.fetchHighlight}><i className="fas fa-redo-alt"></i></button>
 								</div>
 							</div>
 					  </div>

@@ -3,7 +3,8 @@ import {API} from '../config';
 export const FETCH_ARTICLE = "FETCH_ARTICLE",
 	 		 FETCH_CREDITS = "FETCH_CREDITS",
 	 		 FETCH_IMAGES = "FETCH_IMAGES",
-	 		 FETCH_VIDEOS = "FETCH_VIDEOS";
+	 		 FETCH_VIDEOS = "FETCH_VIDEOS",
+	 		 CLEAR = "CLEAR";
 
 export const fetchArticle = (id, section) => {
 	return dispatch => {
@@ -27,6 +28,12 @@ export const fetchArticle = (id, section) => {
 			})
 	}
 } 
+
+export const clear = () => {
+	return dispatch => dispatch({
+		type: CLEAR
+	})
+}
 
 export const fetchCredits = (id, section) => {
 	return dispatch => {

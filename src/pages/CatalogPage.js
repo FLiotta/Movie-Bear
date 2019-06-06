@@ -26,7 +26,8 @@ class CatalogPage extends Component {
 	}
 
 	handleFetch(section){
-		this.props.fetchCatalog({section: section ? section : this.props.section});
+		if(!this.props.isLoading)
+			this.props.fetchCatalog({section: section ? section : this.props.section});
 	}
 
 	render(){

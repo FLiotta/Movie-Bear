@@ -10,7 +10,7 @@ export default (props) => (
 						<div className="row justify-content-center">
 							<div className="col-12 col-md-8">
 								<p className="text-white lead text-left">											
-									This site was made by <a href="https://www.github.com/FLiotta" target="_blank">@FLiotta</a> using The Movie Database's API, All the data is provided by them, you can read more about their api and the services they provide <a href="https://www.themoviedb.org/documentation/api" target="_blank">here</a>.
+									This site was made by <a href="https://www.github.com/FLiotta" target="_blank">@FLiotta</a> using The Movie Database's API. You can read more about them, their api and the services they provide <a href="https://www.themoviedb.org/documentation/api" target="_blank">here</a>.
 								</p>
 							</div>
 							<div className="col-12 col-md-4">
@@ -27,11 +27,11 @@ export default (props) => (
 						<div className="row justify-content-center">
 							<div className="col-12 col-md-8">
 								<p className="text-white lead text-left">			
-									The technologies used on this website are React,Redux,Sass and Webpack, if you want to check the source code, its avaible on it's <a href="https://www.github.com/fliotta" target="_blank">github repository <i class="fab fa-github-alt"></i></a>.
+									The technologies used on this website are React,Redux,Sass and Webpack, if you want to check the source code, its avaible on its <a href="https://www.github.com/fliotta/movie-bear" target="_blank">github repository <i class="fab fa-github-alt"></i></a>.
 								</p>
 							</div>
 							<div className="col-12 col-md-4">
-								<img src="/images/stack.svg" className="d-block mx-auto img-fluid" alt="stack" />
+								<img src="/images/stack.png" className="d-block mx-auto img-fluid" alt="stack" />
 							</div>
 						</div>
 					</div>

@@ -3,7 +3,7 @@ import Actor from './Actor';
 
 export default (props) => (
 	<div className="row" id="CastList">
-	{props.cast && props.cast.map(actor => 
+	{props.info && props.info.map(actor => 
 		<Actor key={actor.id} {...actor} />
 	)}
 	</div>

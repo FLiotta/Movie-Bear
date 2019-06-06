@@ -18,7 +18,7 @@
 	text-overflow: ellipsis;
 	word-wrap: break-word;
 	overflow: hidden;
-	max-height: 7.2em;
+	max-height: 9.0em;
 	line-height: 1.8em;
 }
 
@@ -40,4 +40,8 @@
 	background: -webkit-linear-gradient(bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 90%);
 	background: linear-gradient(to top,  rgba(0,0,0,0) 0%,rgba(0,0,0,.9) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+}
+
+#poster_image {
+	padding-bottom: 25px;
 }

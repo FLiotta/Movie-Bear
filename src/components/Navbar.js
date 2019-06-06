@@ -22,7 +22,7 @@ export default (props) => (
         <NavLink to="/about" className="nav-link" activeClassName="active">About</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/github" className="nav-link" activeClassName="active">Github</NavLink>
+        <a href="https://www.github.com/fliotta/honey-movie" className="nav-link" target="_blank">Github</a>
       </li>
     </ul>
   </div>
