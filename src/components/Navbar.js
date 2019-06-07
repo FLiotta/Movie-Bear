@@ -19,9 +19,6 @@ export default (props) => (
         <NavLink to="/tv" className="nav-link" activeClassName="active">TV Series</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink to="/about" className="nav-link" activeClassName="active">About</NavLink>
-      </li>
-      <li className="nav-item">
         <a href="https://www.github.com/fliotta/movie-bear" className="nav-link" target="_blank">Github</a>
       </li>
     </ul>
