@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 
 module.exports = {
@@ -30,9 +31,20 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({ // <-- key to reducing React's size
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new UglifyJSPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
+    new CompressionPlugin({ 
+      filename: "[path].gz[query]",
+      test: /\.js$|\.css$|\.html$/,
+      exclude: /node_modules/,
+      algorithm: "gzip",
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: true
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
