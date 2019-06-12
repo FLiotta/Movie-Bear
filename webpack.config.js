@@ -31,7 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({ // <-- key to reducing React's size
+    new webpack.DefinePlugin({ 
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
@@ -43,8 +43,7 @@ module.exports = {
       exclude: /node_modules/,
       algorithm: "gzip",
       threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: true
+      minRatio: 0.8
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
